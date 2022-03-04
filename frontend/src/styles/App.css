@@ -1,0 +1,69 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.content {
+  border: 1px solid black;
+  border-radius: 1em;
+  padding: 3em 2em;
+  width: 30vw;
+  text-align: center;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.url-upload-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.url-upload-form label {
+  margin: 5px 10px 5px 0px;
+}
+
+.url-upload-form input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+.url-upload-form button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+}
+
+.url-upload-form button:hover {
+  background-color: blue;
+  cursor: pointer;
+}
+
+.error-notification {
+  color: red;
+  margin-top: 10px;
+}
+
+@media (max-width: 800px) {
+  .content {
+    width: 80vw;
+  }
+  .url-upload-form input {
+    margin: 10px 0;
+  }
+
+  .url-upload-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

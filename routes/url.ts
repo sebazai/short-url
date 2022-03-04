@@ -2,7 +2,7 @@ import express from "express";
 import shortid from "shortid";
 import c from "config";
 import UrlModel from "../models/Url"
-import { urlRegexp } from "../utils/urlValidator";
+import { urlRegexp } from "../frontend/src/utils/urlValidator";
 import { getUTCDateWithoutTime } from "../utils/date";
 
 const urlRouter = express.Router()
