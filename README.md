@@ -4,12 +4,12 @@ Shorten URL services. Similar to bit.ly
 
 ## Prerequisites
 
-Node v16.4.0
+Node v16.4.0  
 NPM v8.1.2
 
 ## Setup dev
 
-Create `default.json` file similar to `template.json` and add your own `mongoURI` connection key.
+Create `default.json` file similar to `template.json` in `config` folder on root and add your own `mongoURI` connection key.
 
 ## Run dev
 
