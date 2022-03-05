@@ -7,7 +7,7 @@ interface UploadUrlFormProps {
 }
 
 type FormData = {
-  url: string
+  urlToShort: string
 }
 
 const UploadUrlForm: React.FC<UploadUrlFormProps> = ({ onSubmit }) => {
@@ -18,30 +18,30 @@ const UploadUrlForm: React.FC<UploadUrlFormProps> = ({ onSubmit }) => {
   } = useForm<FormData>()
 
   const onSubmitForm = (data: FormData) => {
-    onSubmit(data.url)
+    onSubmit(data.urlToShort)
   }
 
   return (
     <div>
       <h1>Insert URL</h1>
       <form onSubmit={handleSubmit(onSubmitForm)} className="url-upload-form">
-        <label htmlFor="url">URL</label>
+        <label htmlFor="urlToShort">URL</label>
         <input
-          {...register("url", {
+          {...register("urlToShort", {
             pattern: {
               value: urlRegexp,
               message: "Not a valid URL",
             },
           })}
           type="text"
-          id="url"
-          name="url"
+          id="urlToShort"
+          name="urlToShort"
           placeholder={"http://example.com"}
           required
         />
         <button type="submit">Submit</button>
       </form>
-      {errors.url?.message && <div className="error-notification">{errors.url.message}</div>}
+      {errors.urlToShort?.message && <div className="error-notification">{errors.urlToShort.message}</div>}
     </div>
   )
 }

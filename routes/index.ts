@@ -13,12 +13,12 @@ defaultRouter.get("/:shortid", async (req, res) => {
     }
 
     const today = getUTCDateWithoutTime()
-    UrlModel.findOneAndUpdate(url, 
+    UrlModel.findOneAndUpdate({ shortCode: req.params.shortid }, 
         { $inc: { [`statistics.${today}`]: 1  } }, 
-        { upsert: true },
-        // (err, document) => {
-        //     console.log(err)
-        // }
+        { upsert: true, },
+        (err, document) => {
+            console.log(err)
+        }
     )
 
     return res.redirect(url.longUrl)

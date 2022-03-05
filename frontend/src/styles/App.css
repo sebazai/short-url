@@ -28,26 +28,6 @@
   margin: 5px 10px 5px 0px;
 }
 
-input {
-  vertical-align: middle;
-  margin: 5px 10px 5px 0;
-  padding: 10px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  width: 100%;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: dodgerblue;
-  border: 1px solid #ddd;
-  color: white;
-}
-
-button:hover {
-  background-color: blue;
-  cursor: pointer;
-}
 
 .error-notification {
   color: red;
@@ -58,15 +38,41 @@ button:hover {
   width: 75%;
 }
 
+/**
+Stats page CSS
+*/
+
 .text-align-left {
   text-align: left;
 }
+
+.stats-page {
+  margin: 0 auto;
+  width: 60vw;
+}
+
+.delete-button {
+    margin: 20px 0px;
+    background-color: red;
+    border: 1px solid #ddd;
+    color: white;
+}
+
+button:hover {
+  background-color: lightcoral;
+  cursor: pointer;
+}
+    
+/**
+End stats page
+*/
 
 @media (max-width: 800px) {
   .content {
     width: 80vw;
   }
-  .url-upload-form input {
+
+  input {
     margin: 10px 0;
   }
 
