@@ -12,7 +12,7 @@ const  Home: React.FC = () => {
   const onSubmitForm = async (url: string) => {
     const data: UrlInterface = await postUrl(url)
     setUrlData(data)
-    const createStatUrl = c.get("baseUrl") + "/" + data.shortCode + "/stats"
+    const createStatUrl = window.location.origin + "/" + data.shortCode + "/stats"
     setStatUrl(createStatUrl)
   }
 
