@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import c from "config";
 
-const mongoURI: string = c.get("mongoURI")
+const mongoURI: string = process.env.MONGODB_URI || c.get("mongoURI")
 
 const db = async () => {
     try {
