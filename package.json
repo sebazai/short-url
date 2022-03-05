@@ -5,8 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node ./build/index.js",
-    "dev-old": "ts-node ./src/index.ts",
+    "start": "node build/index.js",
     "dev": "nodemon -w src -e ts,json -x ts-node ./index.ts",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
