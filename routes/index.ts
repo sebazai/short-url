@@ -20,6 +20,9 @@ defaultRouter.get("/:shortid", async (req, res, next) => {
         UrlModel.findOneAndUpdate({ shortCode: req.params.shortid }, 
             { $inc: { [`statistics.${today}`]: 1  } }, 
             { upsert: true, },
+            (err) => {
+                next(err)
+            }
         )
     
         return res.redirect(url.longUrl)
