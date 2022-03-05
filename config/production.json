@@ -1,3 +1,4 @@
 {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "baseUrl": "https://short-short-short.herokuapp.com/"
 }
