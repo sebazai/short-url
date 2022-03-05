@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "node build/index.js",
     "dev": "nodemon -w src -e ts,json -x ts-node ./index.ts",
-    "heroku-postbuild": "cd frontend && npm install && npm run build"
+    "heroku-postbuild": "npm run build && cd frontend && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
