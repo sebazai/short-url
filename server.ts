@@ -19,35 +19,33 @@ app.use(express.json())
 
 // Handle logs in console during development
 if (process.env.NODE_ENV === "development" || c.get("NODE_ENV") === "development") {
-    app.use(morgan("dev"))
-    app.use(cors())
+  app.use(morgan("dev"))
+  app.use(cors())
 }
 
 // Handle security and origin in production
 if (process.env.NODE_ENV === "production" || c.get("NODE_ENV") === "production") {
-    app.use(helmet())
+  app.use(helmet())
 }
-
 
 app.use("/", defaultRouter)
 app.use("/api/url", urlRouter)
 app.use("/api/stats", statsRouter)
 
-
 // Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, '../frontend/build')))
+app.use(express.static(path.join(__dirname, "../frontend/build")))
 
 // AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '../frontend/build/index.html'))
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "../frontend/build/index.html"))
 })
 
 app.use((err: Error, req: express.Request, res: express.Response) => {
-    return res.status(500).json({
-        errorName: err.name,
-        message: err.message,
-        stack: err.stack || "no stack defined",
-    })
+  return res.status(500).json({
+    errorName: err.name,
+    message: err.message,
+    stack: err.stack || "no stack defined",
+  })
 })
 
-export default app 
+export default app

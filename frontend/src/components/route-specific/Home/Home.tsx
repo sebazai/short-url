@@ -5,7 +5,7 @@ import { UrlInterface } from "../../../../../models/Url"
 import { DisplayUrls } from "./DisplayUrls"
 import c from "config"
 
-const  Home: React.FC = () => {
+const Home: React.FC = () => {
   const [urlData, setUrlData] = useState<UrlInterface | null>(null)
   const [statUrl, setStatUrl] = useState<string | null>(null)
 

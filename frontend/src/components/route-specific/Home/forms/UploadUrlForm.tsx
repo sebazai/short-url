@@ -41,7 +41,9 @@ const UploadUrlForm: React.FC<UploadUrlFormProps> = ({ onSubmit }) => {
         />
         <button type="submit">Submit</button>
       </form>
-      {errors.urlToShort?.message && <div className="error-notification">{errors.urlToShort.message}</div>}
+      {errors.urlToShort?.message && (
+        <div className="error-notification">{errors.urlToShort.message}</div>
+      )}
     </div>
   )
 }
