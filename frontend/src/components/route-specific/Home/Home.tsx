@@ -3,6 +3,7 @@ import { useState } from "react"
 import { postUrl } from "../../../backend/apiRequests"
 import { UrlInterface } from "../../../../../models/Url"
 import { DisplayUrls } from "./DisplayUrls"
+import c from "config"
 
 const  Home: React.FC = () => {
   const [urlData, setUrlData] = useState<UrlInterface | null>(null)
@@ -11,7 +12,7 @@ const  Home: React.FC = () => {
   const onSubmitForm = async (url: string) => {
     const data: UrlInterface = await postUrl(url)
     setUrlData(data)
-    const createStatUrl = "http://localhost:3000/" + data.shortCode + "/stats"
+    const createStatUrl = c.get("baseUrl") + "/" + data.shortCode + "/stats"
     setStatUrl(createStatUrl)
   }
 
