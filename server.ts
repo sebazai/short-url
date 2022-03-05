@@ -6,6 +6,7 @@ import c from "config"
 import db from "./config/db"
 import urlRouter from "./routes/url"
 import defaultRouter from "./routes/index"
+import statsRouter from "./routes/stats"
 
 // Connect to MongoDB
 db()
@@ -28,5 +29,6 @@ if (process.env.NODE_ENV === "production" || c.get("NODE_ENV") === "production")
 
 app.use("/", defaultRouter)
 app.use("/api/url", urlRouter)
+app.use("/api/stats", statsRouter)
 
 export default app 

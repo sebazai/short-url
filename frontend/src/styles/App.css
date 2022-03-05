@@ -28,7 +28,7 @@
   margin: 5px 10px 5px 0px;
 }
 
-.url-upload-form input {
+input {
   vertical-align: middle;
   margin: 5px 10px 5px 0;
   padding: 10px;
@@ -37,14 +37,14 @@
   width: 100%;
 }
 
-.url-upload-form button {
+button {
   padding: 10px 20px;
   background-color: dodgerblue;
   border: 1px solid #ddd;
   color: white;
 }
 
-.url-upload-form button:hover {
+button:hover {
   background-color: blue;
   cursor: pointer;
 }
@@ -52,6 +52,14 @@
 .error-notification {
   color: red;
   margin-top: 10px;
+}
+
+.short-url-copy-field {
+  width: 75%;
+}
+
+.text-align-left {
+  text-align: left;
 }
 
 @media (max-width: 800px) {

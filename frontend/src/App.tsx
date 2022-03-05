@@ -1,28 +1,16 @@
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
+import { Home } from "./components/route-specific/Home"
+import { Stats } from "./components/route-specific/Stats"
 import "./styles/App.css"
-import UploadUrlForm from "./components/forms/UploadUrlForm"
-import { useState } from "react"
-import { postEncodedUrl } from "./backend/apiRequests"
-import { UrlInterface } from "../../models/Url"
 
 function App() {
-  const [shortUrl, setShortUrl] = useState<string | null>(null)
-  const [statUrl, setStatUrl] = useState<string | null>(null)
-
-  const onSubmitForm = async (url: string) => {
-    const data: UrlInterface = await postEncodedUrl(url)
-    setShortUrl(data.shortUrl)
-    const createStatUrl = "http://localhost:3000/" + data.shortCode + "/stats"
-    setStatUrl(createStatUrl)
-  }
-
   return (
-    <div className="wrapper">
-      <div className="content">
-        {!shortUrl && !statUrl && <UploadUrlForm onSubmit={onSubmitForm} />}
-        {shortUrl && <div>{shortUrl}</div>}
-        {statUrl && <div>{statUrl}</div>}
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:shortId/stats" element={<Stats />} />
+      </Routes>
+    </Router>
   )
 }
 

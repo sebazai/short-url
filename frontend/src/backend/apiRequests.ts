@@ -10,4 +10,10 @@ const postUrl = async (url: string) => {
     return data
 }
 
-export { postUrl as postEncodedUrl }
+const fetchStatsForShortId = async (shortId: string) => {
+    const response = await fetch(`/api/stats/${shortId}`)
+    const data = await response.json()
+    return data
+}
+
+export { postUrl, fetchStatsForShortId }

@@ -1,6 +1,6 @@
 import React from "react"
 import { useForm } from "react-hook-form"
-import { urlRegexp } from "../../utils/urlValidator"
+import { urlRegexp } from "../../../../utils/urlValidator"
 
 interface UploadUrlFormProps {
   onSubmit: (url: string) => Promise<void>
