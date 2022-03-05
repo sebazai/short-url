@@ -58,9 +58,14 @@ Stats page CSS
     color: white;
 }
 
-button:hover {
+.delete-button:hover {
   background-color: lightcoral;
   cursor: pointer;
+}
+
+.delete-button:disabled {
+  background-color: lightcoral;
+  cursor: default;
 }
     
 /**

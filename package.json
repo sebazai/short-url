@@ -6,8 +6,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node ./build/index.js",
-    "dev": "ts-node ./src/index.ts",
-    "dev:nodemon": "nodemon -w src -e ts,json -x ts-node ./index.ts"
+    "dev-old": "ts-node ./src/index.ts",
+    "dev": "nodemon -w src -e ts,json -x ts-node ./index.ts"
   },
   "author": "",
   "license": "ISC",

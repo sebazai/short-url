@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import toast from "react-hot-toast"
 import { useParams } from "react-router-dom"
-import { fetchStatsForShortId } from "../../../backend/apiRequests"
+import { deleteUrlWithId, fetchStatsForShortId } from "../../../backend/apiRequests"
 
 type StatsPageParams = {
     shortId: string
@@ -11,18 +12,16 @@ interface StatObject {
 }
 
 
-/**
- * 
- * @returns 
- */
 const Stats: React.FC = () => {
     const params = useParams<StatsPageParams>()
+    const [deleted, setDeleted] = useState(false)
     const [stats, setStats] = useState<StatObject[] | null>(null)
 
     useEffect(() => {
         async function fetchStatsData() {
             if (params.shortId) {
-                let response: Map<string, number> = await fetchStatsForShortId(params.shortId)
+                // Actually maps error too, heh.
+                const response = await fetchStatsForShortId(params.shortId)
                 const mappedKeyValuePairs = Object.entries(response).map(([key, val]) => ({ [key]: val }))
                 setStats(mappedKeyValuePairs)
             }
@@ -30,8 +29,12 @@ const Stats: React.FC = () => {
         fetchStatsData()
     }, [params.shortId])
 
-    const handleDelete = (shortId: string) => {
-        console.log("Delete")
+    const handleDelete = async (shortId: string) => {
+        const response = await deleteUrlWithId(shortId)
+        if (response.message) {
+            toast.success(response.message)
+            setDeleted(true)
+        }
     }
 
     if (!params.shortId) {
@@ -41,7 +44,7 @@ const Stats: React.FC = () => {
     return (
         <div className="stats-page">
             <h1>Statistics page</h1>
-            <button className="delete-button" onClick={() => handleDelete(params.shortId!)}>Delete this short url</button>
+            <button disabled={deleted} className="delete-button" onClick={() => handleDelete(params.shortId!)}>Delete this short url</button>
             <table>
                 <thead>
                     <tr>

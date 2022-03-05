@@ -27,8 +27,17 @@ if (process.env.NODE_ENV === "production" || c.get("NODE_ENV") === "production")
     app.use(helmet())
 }
 
+
 app.use("/", defaultRouter)
 app.use("/api/url", urlRouter)
 app.use("/api/stats", statsRouter)
+
+app.use((err: Error, req: express.Request, res: express.Response) => {
+    return res.status(500).json({
+        errorName: err.name,
+        message: err.message,
+        stack: err.stack || "no stack defined",
+    })
+})
 
 export default app 
