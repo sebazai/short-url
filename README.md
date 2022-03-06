@@ -25,3 +25,11 @@ cd frontend
 npm ci
 npm start
 ```
+
+
+## Todo
+
+- Better type checking from backend
+  - Better error handling
+  - Display nicely error messages
+- Testing
