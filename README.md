@@ -33,3 +33,4 @@ npm start
   - Better error handling
   - Display nicely error messages
 - Testing
+- Enhance UX
